@@ -1,0 +1,113 @@
+# Weather App for beginners. It is created using HTML , CSS and JavaScript
+
+## Why use JavaScript
+
+- JavaScript is a programming language use for biulding website and for scripting
+
+## All source code
+
+### HTML part
+
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App using JavaScript | developer Ejaz</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <section class="vh-100" style="background-color: #4b515d">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-md-8 col-lg-6 col-xl-4">
+            <div class="card" style="color: #4b515d; border-radius: 35px">
+              <div class="card-body p-4">
+                <div class="d-flex flex-column text-center mt-5 mb-4">
+                  <h6
+                    class="display-4 mb-0 font-weight-bold"
+                    style="color: #1c2331; font-size: 1vw"
+                    id="tempreture"
+                  ></h6>
+                </div>
+
+                <div class="d-flex align-items-center">
+                  <div class="flex-grow-1" style="font-size: 1rem">
+                    <div>
+                      <i class="fas fa-wind fa-fw" style="color: #868b94"></i>
+                      <span class="ms-1"> 40 km/h </span>
+                    </div>
+                    <div>
+                      <i class="fas fa-tint fa-fw" style="color: #868b94"></i>
+                      <span class="ms-1"> 84% </span>
+                    </div>
+                    <div>
+                      <i class="fas fa-sun fa-fw" style="color: #868b94"></i>
+                      <span class="ms-1"> 0.2h </span>
+                    </div>
+                  </div>
+                  <div>
+                    <img
+                      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/ilu1.webp"
+                      width="100px"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+```
+
+```
+
+let tempreture = document.querySelector("#tempreture");
+const options = {
+    method: "GET",
+    headers: {
+        'X-RapidAPI-Key': '68cc1e7b9bmsh3f2b4a3e3e949eap11757bjsn55e310e2a5e2',
+        'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
+    }
+
+};
+fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Seattle', options)
+    .then(response => response.json())
+    .then((response) => {
+        console.log(response)
+        tempreture.innerHTML = `Max_tempreture ${response.max_temp} C`
+    })
+    .catch(err => console.log(err))
+
+```
+
+# Note:
+
+- CSS code is not incude becuase we have us bootstrap
